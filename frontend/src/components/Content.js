@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import NoteEditor from './NoteEditor';
 import NoteViewer from './NoteViewer';
 import Instructions from './Instructions';
+// import NoteContainer from './NoteContainer'; 
 
 /*
   Advice: If you cannot figure out how to get this component to work,
@@ -11,11 +12,12 @@ import Instructions from './Instructions';
           refactor to get this Content component to work.
 */
 class Content extends Component {
-  renderContent = () => {
-    if (false) {
-      return <NoteEditor />;
-    } else if (false) {
-      return <NoteViewer />;
+  renderContent = (props) => {
+    // console.log(props)
+    if (props.editedNote.id === props.selectedNote.id) {
+      return <NoteEditor editedNote={props.editedNote} updateNote={props.updateNote} handleSubmit={props.handleSubmit}/>;
+    } else if (props.selectedNote.id) {
+      return <NoteViewer selectedNote={props.selectedNote} handleButton={props.handleButton}/>;
     } else {
       return <Instructions />;
     }
@@ -24,7 +26,7 @@ class Content extends Component {
   render() {
     return (
       <div className='master-detail-element detail'>
-        {this.renderContent()}
+        {this.renderContent(this.props)}
       </div>
     );
   }

@@ -4,11 +4,6 @@ import NoteContainer from './NoteContainer';
 
 const App = ()  => {
 
-
-
-  // listNotes = () => {
-  //   return [...this.state.noteList]
-  // }
   
     return (
       <div className="app">
