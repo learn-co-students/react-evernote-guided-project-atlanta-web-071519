@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import Header from './Header';
 import NoteContainer from './NoteContainer';
 
-class App extends Component {
-  render() {
+const App = ()  => {
+
+  
     return (
       <div className="app">
         <Header />
         <NoteContainer />
       </div>
     );
-  }
+  
 }
 
 export default App;
