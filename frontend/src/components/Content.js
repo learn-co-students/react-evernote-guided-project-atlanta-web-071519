@@ -12,14 +12,15 @@ import Instructions from './Instructions';
 */
 class Content extends Component {
   renderContent = () => {
-    if (false) {
-      return <NoteEditor />;
-    } else if (false) {
-      return <NoteViewer />;
+    if (this.props.noteToEdit.id) {
+      return <NoteEditor deleteNote={this.props.deleteNote} handleCancel={this.props.handleCancel} noteToEdit={this.props.noteToEdit} submitEdits={this.props.submitEdits}/>;
+    } else if (this.props.selectedNote.id) {
+      return <NoteViewer id={this.props.id} editNote={this.props.editNote} selectedNote={this.props.selectedNote}/>;  
     } else {
       return <Instructions />;
     }
   }
+
 
   render() {
     return (
